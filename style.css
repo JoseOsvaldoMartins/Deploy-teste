@@ -22,4 +22,10 @@ body {
   font-size: 14px;
   font-weight: 700;
   border-radius: 6px;
+  margin-bottom: 20px;
+  transition: 0.3s ease;
+}
+
+.button2class {
+  background-color: blueviolet;
 }
