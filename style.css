@@ -1,31 +1,47 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.input-container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.list-container {
+  margin-top: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-  flex-direction: column;
-
+  border-bottom: 1px solid lightgray;
 }
 
-.text {
-  font-size: 22px;
-  color: black;
+.input-text {
+  margin-right: 10px;
+  height: 30px;
 }
 
-.button {
-  background-color: rgb(0, 153, 255);
+.input-date {
+  margin-right: 10px;
+}
+
+.button-create {
+  background-color: rgb(32, 32, 241);
   color: white;
   border: none;
-  height: 42px;
-  width: 120px;
-  font-size: 14px;
-  font-weight: 700;
-  border-radius: 6px;
-  margin-bottom: 20px;
-  transition: 0.3s ease;
+  border-radius: 4px;
+  width: 90px;
 }
 
-.button2class {
-  background-color: blueviolet;
+.list-info {
+  width: 80%;
+}
+
+.button-delete {
+  width: 70px;
+  height: 30px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 6px;
 }

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+  </head>
+  <body style="display: flex; align-items: center; justify-content: center; margin: 0; height: 100vh;">
+    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+      <input id="username" placeholder="Login" style="border: 1px solid lightgray; width: 300px; height: 30px; padding-left: 10px;">
+      <input id="password" placeholder="Senha" type="password" style="border: 1px solid lightgray; width: 300px; height: 30px; padding-left: 10px; margin-top: 20px;">
+      <button style="width: 315px; height: 30px; margin-top: 20px; border: none; background-color: rgb(0, 140, 255);
+       color: white; cursor: pointer;" onclick="login()">Fazer Login</button>
+    </div>
+
+    <script>
+
+    //const backendURI = 'http://10.0.0.103:3000';
+    const backendURI = 'https://web-production-7b63.up.railway.app';
+
+    function login(){
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      fetch(`${backendURI}/login`, {
+        method: 'POST', // Definindo o método da requisição
+        headers: {
+          'Content-Type': 'application/json' // Informando que estamos enviando dados JSON
+        },
+        body: JSON.stringify({ username, password }) // Convertendo os dados para JSON
+      })
+        .then(response => response.json()) // Esperando que a resposta seja em formato JSON
+        .then(data => {
+          if(data.token){
+          //alert(data.message);
+          localStorage.setItem('token', data.token);
+          window.location.href = '/index.html';
+          }
+          
+          else{
+            alert(data.error);
+          }
+        })
+        .catch(data => {
+          //console.error('Erro na requisição:', data.error);
+          alert(data.error);
+        });
+    }
+
+    </script>
+  </body>
+</html>
